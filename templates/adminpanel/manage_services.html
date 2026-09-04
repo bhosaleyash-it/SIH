@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Manage Services" %}{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h2 class="mb-3">{% trans "Manage Service Categories" %}</h2>
+  <div class="row g-4">
+    <div class="col-md-7">
+      <div class="table-responsive card-coop p-2">
+        <table class="table table-borderless align-middle mb-0">
+          <thead><tr class="text-muted small"><th>{% trans "Name" %}</th><th>{% trans "Rate/hr" %}</th><th>{% trans "Active" %}</th><th></th></tr></thead>
+          <tbody>
+          {% for s in services %}
+            <tr>
+              <td><i class="bi {{ s.icon }}"></i> {{ s.name }}</td>
+              <td>₹{{ s.base_rate_per_hour }}</td>
+              <td>{% if s.is_active %}<span class="badge bg-success">{% trans "Yes" %}</span>{% else %}<span class="badge bg-secondary">{% trans "No" %}</span>{% endif %}</td>
+              <td><a href="{% url 'adminpanel:edit_service' s.pk %}" class="btn btn-sm btn-outline-coop">{% trans "Edit" %}</a></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="card-coop p-4">
+        <h5 class="mb-3">{% trans "Add New Service" %}</h5>
+        <form method="post" novalidate>
+          {% csrf_token %}
+          {% for field in form %}
+            <div class="mb-3">
+              <label class="form-label">{{ field.label }}</label>
+              {{ field }}
+              {% if field.help_text %}<div class="form-text small">{{ field.help_text }}</div>{% endif %}
+            </div>
+          {% endfor %}
+          <button type="submit" class="btn btn-coop-primary w-100">{% trans "Add Service" %}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

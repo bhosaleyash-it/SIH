@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Login" %} - {{ SITE_NAME }}{% endblock %}
+{% block content %}
+<div class="container py-5" style="max-width: 460px;">
+  <div class="card-coop p-4">
+    <h3 class="mb-3">{% trans "Login" %}</h3>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="mb-3">
+          <label class="form-label">{{ field.label }}</label>
+          {{ field }}
+          {% for error in field.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}
+        </div>
+      {% endfor %}
+      {% for error in form.non_field_errors %}<div class="text-danger small mb-2">{{ error }}</div>{% endfor %}
+      <button type="submit" class="btn btn-coop-primary w-100">{% trans "Login" %}</button>
+    </form>
+    <p class="text-center mt-3 mb-0">{% trans "New here?" %} <a href="{% url 'accounts:register_choice' %}">{% trans "Sign Up" %}</a></p>
+    <div class="alert alert-info small mt-3 mb-0">
+      {% trans "Demo accounts" %}: <br>
+      {% trans "Cooperative Admin" %}: <code>admin</code> / <code>coopadmin123</code><br>
+      {% trans "Sample Worker" %}: <code>rakesh_electrician</code> / <code>worker@123</code><br>
+      {% trans "Sample Customer" %}: <code>priya_customer</code> / <code>customer@123</code>
+    </div>
+  </div>
+</div>
+{% endblock %}

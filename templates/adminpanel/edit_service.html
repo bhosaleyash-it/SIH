@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Edit Service" %}{% endblock %}
+{% block content %}
+<div class="container py-4" style="max-width: 520px;">
+  <div class="card-coop p-4">
+    <h3 class="mb-3">{% trans "Edit" %} {{ service.name }}</h3>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="mb-3">
+          <label class="form-label">{{ field.label }}</label>
+          {{ field }}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-coop-primary w-100">{% trans "Save Changes" %}</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

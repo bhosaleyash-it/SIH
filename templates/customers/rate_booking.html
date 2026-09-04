@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Rate Worker" %}{% endblock %}
+{% block content %}
+<div class="container py-4" style="max-width: 480px;">
+  <div class="card-coop p-4">
+    <h3 class="mb-3">{% trans "Rate" %} {{ booking.worker.get_full_name|default:booking.worker.username }}</h3>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      <label class="form-label fw-semibold">{% trans "Score" %}</label>
+      <div class="mb-3">
+        {% for radio in form.score %}
+          <div class="form-check form-check-inline">{{ radio.tag }} <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label></div>
+        {% endfor %}
+      </div>
+      <div class="mb-3">
+        <label class="form-label">{{ form.comment.label }}</label>
+        {{ form.comment }}
+      </div>
+      <button type="submit" class="btn btn-coop-primary w-100">{% trans "Submit Rating" %}</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

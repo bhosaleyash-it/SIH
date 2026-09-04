@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Customer Dashboard" %}{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h2 class="mb-1">{% blocktrans with name=user.first_name|default:user.username %}Welcome, {{ name }}{% endblocktrans %}</h2>
+  <p class="text-muted">{% trans "Book trusted, verified cooperative workers in a few taps." %}</p>
+
+  <div class="row g-3 my-2">
+    <div class="col-6 col-md-4">
+      <div class="stat-card"><div class="stat-number">{{ active }}</div><div class="text-muted small">{% trans "Active Bookings" %}</div></div>
+    </div>
+    <div class="col-6 col-md-4">
+      <div class="stat-card"><div class="stat-number">{{ completed }}</div><div class="text-muted small">{% trans "Completed Jobs" %}</div></div>
+    </div>
+    <div class="col-12 col-md-4">
+      <a href="{% url 'customers:emergency' %}" class="stat-card d-block text-decoration-none" style="background: var(--coop-danger); color:#fff;">
+        <div class="fw-bold"><i class="bi bi-exclamation-triangle-fill"></i> {% trans "Emergency Service" %}</div>
+        <div class="small">{% trans "Get urgent help now" %}</div>
+      </a>
+    </div>
+  </div>
+
+  <h5 class="mt-4 mb-3">{% trans "Choose a Service" %}</h5>
+  <div class="row g-3">
+    {% for cat in categories %}
+    <div class="col-6 col-md-3">
+      <a href="{% url 'customers:find_workers' cat.id %}" class="category-tile">
+        <i class="bi {{ cat.icon }}"></i>
+        <div class="mt-2 fw-semibold">{{ cat.name }}</div>
+        <div class="text-muted small">₹{{ cat.base_rate_per_hour }}/hr</div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="d-flex justify-content-between align-items-center mt-5 mb-3">
+    <h5 class="mb-0">{% trans "Recent Bookings" %}</h5>
+    <a href="{% url 'customers:my_bookings' %}" class="small">{% trans "View all" %} &rarr;</a>
+  </div>
+  {% if bookings %}
+  <div class="table-responsive card-coop p-2">
+    <table class="table table-borderless align-middle mb-0">
+      <thead><tr class="text-muted small"><th>{% trans "Ref" %}</th><th>{% trans "Service" %}</th><th>{% trans "Worker" %}</th><th>{% trans "Status" %}</th><th></th></tr></thead>
+      <tbody>
+      {% for b in bookings %}
+        <tr>
+          <td class="small">{{ b.booking_ref }}</td>
+          <td>{{ b.service_category.name }}</td>
+          <td>{{ b.worker.get_full_name|default:b.worker.username }}</td>
+          <td><span class="badge bg-{{ b.status_badge }}">{{ b.get_status_display }}</span></td>
+          <td><a href="{% url 'customers:booking_detail' b.pk %}" class="btn btn-sm btn-outline-coop">{% trans "View" %}</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="card-coop p-4 text-center text-muted">{% trans "No bookings yet. Book your first service above!" %}</div>
+  {% endif %}
+</div>
+{% endblock %}

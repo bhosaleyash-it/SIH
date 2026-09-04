@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Book" %} {{ profile.user.get_full_name }}{% endblock %}
+{% block content %}
+<div class="container py-4" style="max-width: 640px;">
+  <div class="card-coop p-4">
+    <h3 class="mb-1">{% trans "Book" %} {{ profile.user.get_full_name|default:profile.user.username }}</h3>
+    <p class="text-muted mb-3">{% for c in profile.service_categories.all %}{{ c.name }}{% if not forloop.last %}, {% endif %}{% endfor %} &middot; ₹{{ profile.hourly_rate }}/hr</p>
+    {% if is_emergency %}
+    <div class="emergency-banner p-2 mb-3 small"><i class="bi bi-exclamation-triangle-fill"></i> {% trans "Emergency booking — worker will be notified urgently." %}</div>
+    {% endif %}
+    <form method="post" id="bookingForm" novalidate>
+      {% csrf_token %}
+      {% for field in form %}
+        {% if field.name != 'latitude' and field.name != 'longitude' %}
+        <div class="mb-3">
+          <label class="form-label">{{ field.label }}</label>
+          {{ field }}
+          {% for error in field.errors %}<div class="text-danger small">{{ error }}</div>{% endfor %}
+        </div>
+        {% else %}{{ field }}{% endif %}
+      {% endfor %}
+      <div class="mb-3">
+        <button type="button" id="getLocBtn" class="btn btn-sm btn-outline-coop"><i class="bi bi-geo-alt"></i> {% trans "Attach my current location" %}</button>
+        <span id="locStatus" class="small text-muted ms-2"></span>
+      </div>
+      <button type="submit" class="btn btn-coop-primary w-100">{% trans "Confirm Booking Request" %}</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+document.getElementById('getLocBtn').addEventListener('click', function () {
+  if (!navigator.geolocation) return;
+  navigator.geolocation.getCurrentPosition(function (pos) {
+    document.getElementById('id_latitude').value = pos.coords.latitude;
+    document.getElementById('id_longitude').value = pos.coords.longitude;
+    document.getElementById('locStatus').textContent = "{% trans 'Location attached ✓' %}";
+  });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{{ profile.user.get_full_name }}{% endblock %}
+{% block content %}
+<div class="container py-4" style="max-width: 780px;">
+  <div class="card-coop p-4 mb-3">
+    <div class="d-flex gap-3 align-items-start flex-wrap">
+      <div class="worker-avatar" style="width:80px;height:80px;font-size:1.6rem;">{{ profile.user.first_name|first|upper }}{{ profile.user.last_name|first|upper }}</div>
+      <div class="flex-grow-1">
+        <h3 class="mb-1">{{ profile.user.get_full_name|default:profile.user.username }}
+          <span class="badge badge-verified">{% trans "Verified" %}</span>
+        </h3>
+        <div class="text-muted mb-2">
+          {% for c in profile.service_categories.all %}<span class="badge bg-light text-dark border me-1">{{ c.name }}</span>{% endfor %}
+        </div>
+        <div class="mb-2">
+          <span class="rating-stars"><i class="bi bi-star-fill"></i> {{ profile.rating_avg }}</span> ({{ profile.rating_count }} {% trans "reviews" %})
+          &middot; {{ profile.jobs_completed }} {% trans "jobs completed" %} &middot; {{ profile.experience_years }} {% trans "yrs experience" %}
+        </div>
+        <div class="mb-2">
+          <span class="badge {% if profile.is_online %}badge-online{% else %}badge-offline{% endif %}">
+            {% if profile.is_online %}{% trans "Online now" %}{% else %}{% trans "Offline" %}{% endif %}
+          </span>
+          <span class="ms-2 fw-semibold">₹{{ profile.hourly_rate }}/hr</span>
+        </div>
+        <p>{{ profile.bio }}</p>
+        <a href="{% url 'customers:book_worker' profile.pk %}" class="btn btn-coop-primary">{% trans "Book Now" %}</a>
+      </div>
+    </div>
+  </div>
+
+  <h5 class="mb-3">{% trans "Customer Reviews" %}</h5>
+  {% if reviews %}
+    {% for r in reviews %}
+    <div class="card-coop p-3 mb-2">
+      <div class="rating-stars mb-1">
+        {% for i in "12345" %}<i class="bi {% if forloop.counter <= r.score %}bi-star-fill{% else %}bi-star{% endif %}"></i>{% endfor %}
+      </div>
+      <div class="small text-muted mb-1">{{ r.customer.get_full_name|default:r.customer.username }} &middot; {{ r.created_at|date:"d M Y" }}</div>
+      <p class="mb-0">{{ r.comment }}</p>
+    </div>
+    {% endfor %}
+  {% else %}
+    <div class="card-coop p-3 text-muted">{% trans "No reviews yet." %}</div>
+  {% endif %}
+</div>
+{% endblock %}

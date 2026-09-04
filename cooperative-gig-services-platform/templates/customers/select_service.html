@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Select a Service" %}{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h2 class="mb-4">{% trans "What service do you need?" %}</h2>
+  <div class="row g-3">
+    {% for cat in categories %}
+    <div class="col-6 col-md-3">
+      <a href="{% url 'customers:find_workers' cat.id %}" class="category-tile">
+        <i class="bi {{ cat.icon }}"></i>
+        <div class="mt-2 fw-semibold">{{ cat.name }}</div>
+        <div class="text-muted small">{{ cat.description }}</div>
+        <div class="text-muted small">₹{{ cat.base_rate_per_hour }}/hr</div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

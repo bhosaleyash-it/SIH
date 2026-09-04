@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Booking" %} {{ booking.booking_ref }}{% endblock %}
+{% block content %}
+<div class="container py-4" style="max-width: 720px;">
+  <div class="d-flex justify-content-between align-items-start flex-wrap mb-3">
+    <div>
+      <h3 class="mb-0">{{ booking.service_category.name }} <span class="badge bg-{{ booking.status_badge }}">{{ booking.get_status_display }}</span></h3>
+      <div class="text-muted small">{% trans "Ref" %}: {{ booking.booking_ref }}</div>
+    </div>
+    {% if booking.is_emergency %}<span class="badge bg-danger align-self-start">{% trans "Emergency" %}</span>{% endif %}
+  </div>
+
+  <div class="card-coop p-4 mb-3">
+    <h6 class="mb-3">{% trans "Job Tracking" %}</h6>
+    <div class="progress progress-thin mb-3">
+      <div class="progress-bar bg-success" style="width: {{ booking.progress_percent }}%;"></div>
+    </div>
+    <div class="row text-center small">
+      <div class="col"><i class="bi {% if booking.status != 'pending' or booking.accepted_at %}bi-check-circle-fill text-success{% else %}bi-circle text-muted{% endif %}"></i><br>{% trans "Requested" %}</div>
+      <div class="col"><i class="bi {% if booking.accepted_at %}bi-check-circle-fill text-success{% else %}bi-circle text-muted{% endif %}"></i><br>{% trans "Accepted" %}</div>
+      <div class="col"><i class="bi {% if booking.started_at %}bi-check-circle-fill text-success{% else %}bi-circle text-muted{% endif %}"></i><br>{% trans "In Progress" %}</div>
+      <div class="col"><i class="bi {% if booking.completed_at %}bi-check-circle-fill text-success{% else %}bi-circle text-muted{% endif %}"></i><br>{% trans "Completed" %}</div>
+    </div>
+  </div>
+
+  <div class="card-coop p-4 mb-3">
+    <h6 class="mb-2">{% trans "Details" %}</h6>
+    <div class="row small">
+      <div class="col-6 mb-2"><span class="text-muted">{% trans "Worker" %}</span><br>{{ booking.worker.get_full_name|default:booking.worker.username }}</div>
+      <div class="col-6 mb-2"><span class="text-muted">{% trans "Scheduled" %}</span><br>{{ booking.scheduled_time|date:"d M Y, H:i" }}</div>
+      <div class="col-6 mb-2"><span class="text-muted">{% trans "Address" %}</span><br>{{ booking.address }}</div>
+      <div class="col-6 mb-2"><span class="text-muted">{% trans "Estimated Hours" %}</span><br>{{ booking.estimated_hours }}</div>
+      <div class="col-6 mb-2"><span class="text-muted">{% trans "Price" %}</span><br>₹{{ booking.price }}</div>
+      {% if booking.distance_km %}<div class="col-6 mb-2"><span class="text-muted">{% trans "Distance" %}</span><br>{{ booking.distance_km }} km</div>{% endif %}
+    </div>
+    {% if booking.notes %}<div class="small mt-2"><span class="text-muted">{% trans "Notes" %}:</span> {{ booking.notes }}</div>{% endif %}
+  </div>
+
+  <div class="d-flex gap-2 flex-wrap">
+    {% if booking.status == 'pending' or booking.status == 'accepted' %}
+      <form method="post" action="{% url 'customers:cancel_booking' booking.pk %}">{% csrf_token %}
+        <button class="btn btn-outline-danger">{% trans "Cancel Booking" %}</button>
+      </form>
+    {% endif %}
+    {% if booking.status == 'completed' %}
+      {% if not booking.is_paid %}
+        <a href="{% url 'customers:make_payment' booking.pk %}" class="btn btn-coop-accent"><i class="bi bi-credit-card"></i> {% trans "Pay Now" %}</a>
+      {% else %}
+        <a href="{% url 'customers:invoice' booking.pk %}" class="btn btn-outline-coop"><i class="bi bi-receipt"></i> {% trans "View Invoice" %}</a>
+      {% endif %}
+      {% if not booking.rating %}
+        <a href="{% url 'customers:rate_booking' booking.pk %}" class="btn btn-coop-primary"><i class="bi bi-star"></i> {% trans "Rate Worker" %}</a>
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

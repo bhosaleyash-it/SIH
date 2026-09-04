@@ -1,0 +1,1082 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-28 17:23+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: accounts/views.py:19
+msgid "Welcome! Your customer account has been created."
+msgstr "સ્વાગત છે! તમારું ગ્રાહક ખાતું બની ગયું છે."
+
+#: accounts/views.py:32
+msgid "Welcome! Please complete your skill profile to get verified."
+msgstr "સ્વાગત છે! ચકાસણી માટે કૃપા કરી તમારી પ્રોફાઇલ પૂર્ણ કરો."
+
+#: accounts/views.py:50
+msgid "Profile updated."
+msgstr "પ્રોફાઇલ અપડેટ થઈ."
+
+#: adminpanel/views.py:96
+msgid "Worker verified successfully."
+msgstr "કામદાર સફળતાપૂર્વક ચકાસાયો."
+
+#: adminpanel/views.py:99
+msgid "Worker verification rejected."
+msgstr "કામદાર ચકાસણી નકારવામાં આવી."
+
+#: adminpanel/views.py:120
+msgid "Worker account status updated."
+msgstr "કામદાર ખાતાની સ્થિતિ અપડેટ થઈ."
+
+#: adminpanel/views.py:132
+msgid "Service category added."
+msgstr "સેવા શ્રેણી ઉમેરાઈ."
+
+#: adminpanel/views.py:147
+msgid "Service updated."
+msgstr "સેવા અપડેટ થઈ."
+
+#: customers/views.py:97
+msgid "Booking request sent! Track its status below."
+msgstr "બુકિંગ વિનંતી મોકલાઈ! નીચે સ્થિતિ જુઓ."
+
+#: customers/views.py:133
+msgid "Booking cancelled."
+msgstr "બુકિંગ રદ કરવામાં આવી."
+
+#: customers/views.py:142
+msgid "Payment is available once the job is completed."
+msgstr "કામ પૂર્ણ થયા પછી ચુકવણી ઉપલબ્ધ થશે."
+
+#: customers/views.py:155
+msgid "Payment successful! Your invoice is ready."
+msgstr "ચુકવણી સફળ! તમારું ઇનવોઇસ તૈયાર છે."
+
+#: customers/views.py:175
+msgid "You can rate a job after it is completed."
+msgstr "કામ પૂર્ણ થયા પછી જ તમે રેટિંગ આપી શકો છો."
+
+#: customers/views.py:178
+msgid "You already rated this booking."
+msgstr "તમે આ બુકિંગને પહેલેથી રેટ કરી છે."
+
+#: customers/views.py:189
+msgid "Thanks for your feedback!"
+msgstr "તમારા પ્રતિસાદ બદલ આભાર!"
+
+#: templates/accounts/login.html:3 templates/accounts/login.html:7
+#: templates/accounts/login.html:18 templates/accounts/register.html:20
+#: templates/accounts/register_choice.html:23 templates/base.html:74
+msgid "Login"
+msgstr "લૉગિન"
+
+#: templates/accounts/login.html:20
+msgid "New here?"
+msgstr "અહીં નવા છો?"
+
+#: templates/accounts/login.html:20 templates/accounts/register_choice.html:3
+#: templates/base.html:75
+msgid "Sign Up"
+msgstr "સાઇન અપ કરો"
+
+#: templates/accounts/login.html:22
+msgid "Demo accounts"
+msgstr "ડેમો ખાતાઓ"
+
+#: templates/accounts/login.html:23
+msgid "Cooperative Admin"
+msgstr "સહકારી વ્યવસ્થાપક"
+
+#: templates/accounts/login.html:24
+msgid "Sample Worker"
+msgstr "નમૂના કામદાર"
+
+#: templates/accounts/login.html:25
+msgid "Sample Customer"
+msgstr "નમૂના ગ્રાહક"
+
+#: templates/accounts/profile.html:3 templates/accounts/profile.html:7
+#: templates/base.html:64
+msgid "My Profile"
+msgstr "મારી પ્રોફાઇલ"
+
+#: templates/accounts/profile.html:17 templates/adminpanel/edit_service.html:16
+msgid "Save Changes"
+msgstr "ફેરફારો સાચવો"
+
+#: templates/accounts/register.html:3
+msgid "Register"
+msgstr ""
+
+#: templates/accounts/register.html:7
+#, python-format
+msgid "Register as %(role)s"
+msgstr ""
+
+#: templates/accounts/register.html:18
+msgid "Create Account"
+msgstr "ખાતું બનાવો"
+
+#: templates/accounts/register.html:20
+#: templates/accounts/register_choice.html:23
+msgid "Already have an account?"
+msgstr "પહેલેથી ખાતું છે?"
+
+#: templates/accounts/register_choice.html:6
+msgid "How would you like to join?"
+msgstr "તમે કેવી રીતે જોડાવા માંગો છો?"
+
+#: templates/accounts/register_choice.html:11
+msgid "I'm a Customer"
+msgstr "હું ગ્રાહક છું"
+
+#: templates/accounts/register_choice.html:12
+msgid "Find and book verified local workers for your home or business needs."
+msgstr "તમારા ઘર કે વ્યવસાય માટે ચકાસાયેલ સ્થાનિક કામદારો શોધો અને બુક કરો."
+
+#: templates/accounts/register_choice.html:18
+msgid "I'm a Worker"
+msgstr "હું કામદાર છું"
+
+#: templates/accounts/register_choice.html:19
+msgid "Join the cooperative, get verified, and start earning through bookings."
+msgstr "સહકારી મંડળમાં જોડાઓ, ચકાસાયેલ બનો અને બુકિંગ દ્વારા કમાણી શરૂ કરો."
+
+#: templates/adminpanel/dashboard.html:3
+msgid "Cooperative Admin Dashboard"
+msgstr ""
+
+#: templates/adminpanel/dashboard.html:6
+msgid "Cooperative Dashboard"
+msgstr "સહકારી ડેશબોર્ડ"
+
+#: templates/adminpanel/dashboard.html:9
+msgid "Customers"
+msgstr "ગ્રાહકો"
+
+#: templates/adminpanel/dashboard.html:10 templates/base.html:39
+msgid "Workers"
+msgstr "કામદારો"
+
+#: templates/adminpanel/dashboard.html:11 templates/core/home.html:32
+msgid "Verified Workers"
+msgstr "ચકાસાયેલ કામદારો"
+
+#: templates/adminpanel/dashboard.html:14
+msgid "Pending Verifications"
+msgstr "બાકી ચકાસણીઓ"
+
+#: templates/adminpanel/dashboard.html:20
+msgid "Total Bookings"
+msgstr "કુલ બુકિંગ"
+
+#: templates/adminpanel/dashboard.html:21 templates/customers/dashboard.html:11
+msgid "Active Bookings"
+msgstr "સક્રિય બુકિંગ"
+
+#: templates/adminpanel/dashboard.html:22
+msgid "Total Revenue"
+msgstr "કુલ આવક"
+
+#: templates/adminpanel/dashboard.html:23
+#: templates/adminpanel/monitor_payments.html:9
+msgid "Cooperative Commission"
+msgstr "સહકારી કમિશન"
+
+#: templates/adminpanel/dashboard.html:29
+msgid "Bookings by Service Category"
+msgstr "સેવા શ્રેણી પ્રમાણે બુકિંગ"
+
+#: templates/adminpanel/dashboard.html:35
+msgid "Booking Status Breakdown"
+msgstr "બુકિંગ સ્થિતિ વિભાજન"
+
+#: templates/adminpanel/dashboard.html:41
+msgid "Revenue Trend"
+msgstr "આવક વલણ"
+
+#: templates/adminpanel/dashboard.html:52 templates/base.html:34
+#: templates/base.html:41 templates/workers/bookings_list.html:6
+msgid "Bookings"
+msgstr "બુકિંગ"
+
+#: templates/adminpanel/dashboard.html:62
+msgid "Revenue (₹)"
+msgstr ""
+
+#: templates/adminpanel/edit_service.html:3
+msgid "Edit Service"
+msgstr "સેવા સંપાદિત કરો"
+
+#: templates/adminpanel/edit_service.html:7
+#: templates/adminpanel/manage_services.html:18
+msgid "Edit"
+msgstr "સંપાદિત કરો"
+
+#: templates/adminpanel/manage_bookings.html:3
+msgid "Manage Bookings"
+msgstr ""
+
+#: templates/adminpanel/manage_bookings.html:6
+msgid "All Bookings"
+msgstr "બધી બુકિંગ"
+
+#: templates/adminpanel/manage_bookings.html:8
+#: templates/customers/my_bookings.html:8
+#: templates/workers/bookings_list.html:8
+msgid "All"
+msgstr "બધા"
+
+#: templates/adminpanel/manage_bookings.html:15
+#: templates/customers/booking_detail.html:9
+#: templates/customers/dashboard.html:44
+#: templates/customers/my_bookings.html:16
+#: templates/workers/bookings_list.html:16 templates/workers/dashboard.html:48
+msgid "Ref"
+msgstr "સંદર્ભ"
+
+#: templates/adminpanel/manage_bookings.html:15
+#: templates/customers/invoice.html:19 templates/workers/bookings_list.html:16
+#: templates/workers/dashboard.html:48
+msgid "Customer"
+msgstr "ગ્રાહક"
+
+#: templates/adminpanel/manage_bookings.html:15
+#: templates/adminpanel/manage_workers.html:9
+#: templates/adminpanel/verify_workers.html:10
+#: templates/adminpanel/verify_workers.html:35
+#: templates/customers/booking_detail.html:30
+#: templates/customers/dashboard.html:44 templates/customers/invoice.html:20
+#: templates/customers/my_bookings.html:16
+msgid "Worker"
+msgstr "કામદાર"
+
+#: templates/adminpanel/manage_bookings.html:15
+#: templates/customers/dashboard.html:44 templates/customers/invoice.html:21
+#: templates/customers/my_bookings.html:16
+#: templates/workers/bookings_list.html:16 templates/workers/dashboard.html:48
+msgid "Service"
+msgstr "સેવા"
+
+#: templates/adminpanel/manage_bookings.html:15
+#: templates/customers/booking_detail.html:31
+#: templates/customers/my_bookings.html:16
+#: templates/workers/bookings_list.html:16
+msgid "Scheduled"
+msgstr "નિર્ધારિત"
+
+#: templates/adminpanel/manage_bookings.html:15
+#: templates/adminpanel/manage_workers.html:9
+#: templates/adminpanel/monitor_payments.html:14
+#: templates/customers/dashboard.html:44 templates/customers/invoice.html:35
+#: templates/customers/my_bookings.html:16
+#: templates/workers/bookings_list.html:16 templates/workers/dashboard.html:48
+msgid "Status"
+msgstr "સ્થિતિ"
+
+#: templates/adminpanel/manage_bookings.html:15
+#: templates/customers/booking_detail.html:34
+msgid "Price"
+msgstr "કિંમત"
+
+#: templates/adminpanel/manage_bookings.html:22 templates/base.html:31
+#: templates/customers/booking_detail.html:11
+#: templates/customers/my_bookings.html:21
+#: templates/workers/bookings_list.html:22 templates/workers/dashboard.html:54
+msgid "Emergency"
+msgstr "કટોકટી"
+
+#: templates/adminpanel/manage_services.html:3
+msgid "Manage Services"
+msgstr ""
+
+#: templates/adminpanel/manage_services.html:6
+msgid "Manage Service Categories"
+msgstr "સેવા શ્રેણીઓ સંચાલિત કરો"
+
+#: templates/adminpanel/manage_services.html:11
+msgid "Name"
+msgstr "નામ"
+
+#: templates/adminpanel/manage_services.html:11
+msgid "Rate/hr"
+msgstr "દર/કલાક"
+
+#: templates/adminpanel/manage_services.html:11
+#: templates/adminpanel/manage_workers.html:21
+msgid "Active"
+msgstr "સક્રિય"
+
+#: templates/adminpanel/manage_services.html:17
+msgid "Yes"
+msgstr "હા"
+
+#: templates/adminpanel/manage_services.html:17
+msgid "No"
+msgstr "ના"
+
+#: templates/adminpanel/manage_services.html:27
+msgid "Add New Service"
+msgstr "નવી સેવા ઉમેરો"
+
+#: templates/adminpanel/manage_services.html:37
+msgid "Add Service"
+msgstr "સેવા ઉમેરો"
+
+#: templates/adminpanel/manage_workers.html:3
+#: templates/adminpanel/manage_workers.html:6
+msgid "Manage Workers"
+msgstr "કામદારો સંચાલિત કરો"
+
+#: templates/adminpanel/manage_workers.html:9
+#: templates/adminpanel/verify_worker_detail.html:10
+#: templates/adminpanel/verify_workers.html:10
+msgid "Skills"
+msgstr "કૌશલ્યો"
+
+#: templates/adminpanel/manage_workers.html:9
+msgid "Rating"
+msgstr "રેટિંગ"
+
+#: templates/adminpanel/manage_workers.html:9
+msgid "Jobs"
+msgstr "કામ"
+
+#: templates/adminpanel/manage_workers.html:9
+msgid "Account"
+msgstr "ખાતું"
+
+#: templates/adminpanel/manage_workers.html:16
+#: templates/customers/find_workers.html:29
+#: templates/customers/worker_profile.html:11
+#: templates/workers/dashboard.html:10
+msgid "Verified"
+msgstr "ચકાસાયેલ"
+
+#: templates/adminpanel/manage_workers.html:16
+msgid "Pending"
+msgstr ""
+
+#: templates/adminpanel/manage_workers.html:17
+#: templates/customers/find_workers.html:31 templates/workers/dashboard.html:14
+msgid "Online"
+msgstr "ઓનલાઇન"
+
+#: templates/adminpanel/manage_workers.html:17
+#: templates/customers/find_workers.html:31
+#: templates/customers/worker_profile.html:22
+#: templates/workers/dashboard.html:14
+msgid "Offline"
+msgstr "ઓફલાઇન"
+
+#: templates/adminpanel/manage_workers.html:21
+msgid "Suspended"
+msgstr "સ્થગિત"
+
+#: templates/adminpanel/manage_workers.html:25
+msgid "Suspend"
+msgstr "સ્થગિત કરો"
+
+#: templates/adminpanel/manage_workers.html:25
+msgid "Reactivate"
+msgstr "ફરી સક્રિય કરો"
+
+#: templates/adminpanel/monitor_payments.html:3
+msgid "Monitor Payments"
+msgstr ""
+
+#: templates/adminpanel/monitor_payments.html:6 templates/base.html:42
+msgid "Payments"
+msgstr "ચુકવણી"
+
+#: templates/adminpanel/monitor_payments.html:8
+msgid "Total Collected"
+msgstr "કુલ એકત્રિત"
+
+#: templates/adminpanel/monitor_payments.html:10
+msgid "Paid to Workers"
+msgstr "કામદારોને ચૂકવેલ"
+
+#: templates/adminpanel/monitor_payments.html:14
+#: templates/workers/earnings.html:17
+msgid "Transaction"
+msgstr "વ્યવહાર"
+
+#: templates/adminpanel/monitor_payments.html:14
+#: templates/customers/booking_detail.html:3 templates/customers/payment.html:8
+#: templates/workers/earnings.html:17
+msgid "Booking"
+msgstr ""
+
+#: templates/adminpanel/monitor_payments.html:14
+msgid "Method"
+msgstr "પદ્ધતિ"
+
+#: templates/adminpanel/monitor_payments.html:14
+#: templates/customers/invoice.html:25 templates/workers/earnings.html:17
+msgid "Amount"
+msgstr ""
+
+#: templates/adminpanel/monitor_payments.html:14
+msgid "Commission"
+msgstr "કમિશન"
+
+#: templates/adminpanel/monitor_payments.html:14
+#: templates/customers/invoice.html:14 templates/workers/earnings.html:17
+msgid "Date"
+msgstr "તારીખ"
+
+#: templates/adminpanel/verify_worker_detail.html:3
+msgid "Review Worker"
+msgstr ""
+
+#: templates/adminpanel/verify_worker_detail.html:11
+#: templates/adminpanel/verify_workers.html:10
+msgid "Experience"
+msgstr "અનુભવ"
+
+#: templates/adminpanel/verify_worker_detail.html:11
+msgid "years"
+msgstr ""
+
+#: templates/adminpanel/verify_worker_detail.html:12
+msgid "Hourly Rate"
+msgstr ""
+
+#: templates/adminpanel/verify_worker_detail.html:13
+msgid "Bio"
+msgstr ""
+
+#: templates/adminpanel/verify_worker_detail.html:16
+#: templates/adminpanel/verify_workers.html:10
+msgid "Certificate"
+msgstr "પ્રમાણપત્ર"
+
+#: templates/adminpanel/verify_worker_detail.html:19
+#: templates/adminpanel/verify_workers.html:18
+msgid "Not uploaded"
+msgstr "અપલોડ થયું નથી"
+
+#: templates/adminpanel/verify_worker_detail.html:32
+msgid "Submit Decision"
+msgstr "નિર્ણય સબમિટ કરો"
+
+#: templates/adminpanel/verify_workers.html:3 templates/base.html:38
+msgid "Verify Workers"
+msgstr "કામદાર ચકાસણી"
+
+#: templates/adminpanel/verify_workers.html:6
+msgid "Worker Verification Queue"
+msgstr "કામદાર ચકાસણી કતાર"
+
+#: templates/adminpanel/verify_workers.html:20
+msgid "yrs"
+msgstr ""
+
+#: templates/adminpanel/verify_workers.html:21
+msgid "Review"
+msgstr "સમીક્ષા કરો"
+
+#: templates/adminpanel/verify_workers.html:28
+msgid "No workers awaiting verification."
+msgstr "કોઈ કામદાર ચકાસણીની રાહ જોઈ રહ્યા નથી."
+
+#: templates/adminpanel/verify_workers.html:31
+msgid "Recently Verified"
+msgstr "તાજેતરમાં ચકાસાયેલ"
+
+#: templates/adminpanel/verify_workers.html:35
+msgid "Verified On"
+msgstr "ચકાસાયેલ તારીખ"
+
+#: templates/adminpanel/verify_workers.html:44
+msgid "None yet."
+msgstr "હજુ સુધી કોઈ નહીં."
+
+#: templates/base.html:28 templates/base.html:33 templates/base.html:37
+msgid "Dashboard"
+msgstr "ડેશબોર્ડ"
+
+#: templates/base.html:29
+msgid "Book a Service"
+msgstr "સેવા બુક કરો"
+
+#: templates/base.html:30 templates/customers/my_bookings.html:3
+#: templates/customers/my_bookings.html:6
+#: templates/workers/bookings_list.html:3
+msgid "My Bookings"
+msgstr "મારી બુકિંગ"
+
+#: templates/base.html:35 templates/workers/earnings.html:3
+#: templates/workers/earnings.html:6
+msgid "Earnings"
+msgstr "કમાણી"
+
+#: templates/base.html:40
+msgid "Services"
+msgstr "સેવાઓ"
+
+#: templates/base.html:44
+msgid "Home"
+msgstr "હોમ"
+
+#: templates/base.html:45 templates/base.html:98 templates/core/about.html:3
+msgid "About"
+msgstr "અમારા વિશે"
+
+#: templates/base.html:68
+msgid "Logout"
+msgstr "લૉગઆઉટ"
+
+#: templates/base.html:97
+msgid "Empowering local cooperative workers."
+msgstr "સ્થાનિક સહકારી કામદારોને સશક્ત બનાવવું."
+
+#: templates/base.html:98
+msgid "MVP Demo"
+msgstr "એમવીપી ડેમો"
+
+#: templates/core/about.html:6
+msgid "About the Cooperative Gig Services Platform"
+msgstr "કોઓપરેટિવ ગિગ સર્વિસીસ પ્લેટફોર્મ વિશે"
+
+#: templates/core/about.html:7
+msgid ""
+"This platform connects customers with verified local cooperative workers "
+"such as electricians, plumbers, carpenters, cleaners, painters, gardeners, "
+"drivers, and technicians. All workers are vetted and verified by the "
+"cooperative admin team, ensuring safety and quality for every booking."
+msgstr ""
+
+#: templates/core/about.html:9
+msgid "How it works"
+msgstr "તે કેવી રીતે કાર્ય કરે છે"
+
+#: templates/core/about.html:11
+msgid "Customers register and select the service they need."
+msgstr ""
+
+#: templates/core/about.html:12
+msgid "The platform shows nearby verified workers, sorted by distance."
+msgstr ""
+
+#: templates/core/about.html:13
+msgid "Customers book a worker, track the job status, and pay securely."
+msgstr ""
+
+#: templates/core/about.html:14
+msgid "After the job, customers rate and review the worker."
+msgstr ""
+
+#: templates/core/home.html:3
+msgid "Trusted Local Services"
+msgstr "વિશ્વસનીય સ્થાનિક સેવાઓ"
+
+#: templates/core/home.html:9
+msgid "Book verified cooperative workers near you"
+msgstr "તમારી નજીક ચકાસાયેલ સહકારી કામદારો બુક કરો"
+
+#: templates/core/home.html:10
+msgid ""
+"Electricians, plumbers, carpenters, cleaners, painters, gardeners, drivers & "
+"technicians — vetted by your local cooperative."
+msgstr ""
+
+#: templates/core/home.html:13
+msgid "Find a Worker"
+msgstr "કામદાર શોધો"
+
+#: templates/core/home.html:14
+msgid "Join as a Worker"
+msgstr "કામદાર તરીકે જોડાઓ"
+
+#: templates/core/home.html:16
+msgid "Go to Dashboard"
+msgstr "ડેશબોર્ડ પર જાઓ"
+
+#: templates/core/home.html:38
+msgid "Bookings Completed"
+msgstr "પૂર્ણ થયેલ બુકિંગ"
+
+#: templates/core/home.html:44
+msgid "Service Categories"
+msgstr "સેવા શ્રેણીઓ"
+
+#: templates/core/home.html:49
+msgid "Popular Services"
+msgstr "લોકપ્રિય સેવાઓ"
+
+#: templates/core/home.html:66
+msgid "Verified Professionals"
+msgstr "ચકાસાયેલ વ્યાવસાયિકો"
+
+#: templates/core/home.html:67
+msgid ""
+"Every worker is certificate-checked and approved by the cooperative admin."
+msgstr ""
+
+#: templates/core/home.html:73
+msgid "Nearby Matching"
+msgstr "નજીકનું મેચિંગ"
+
+#: templates/core/home.html:74
+msgid ""
+"Instant distance-based sorting connects you with the closest available "
+"worker."
+msgstr ""
+
+#: templates/core/home.html:80
+msgid "Emergency Requests"
+msgstr "કટોકટી વિનંતીઓ"
+
+#: templates/core/home.html:81
+msgid "Need urgent help? Request the nearest online worker right away."
+msgstr "તાત્કાલિક મદદ જોઈએ છે? નજીકના ઓનલાઇન કામદારને હમણાં જ વિનંતી કરો."
+
+#: templates/customers/book_worker.html:3
+#: templates/customers/book_worker.html:7
+msgid "Book"
+msgstr ""
+
+#: templates/customers/book_worker.html:10
+msgid "Emergency booking — worker will be notified urgently."
+msgstr ""
+
+#: templates/customers/book_worker.html:24
+msgid "Attach my current location"
+msgstr "મારું વર્તમાન સ્થાન જોડો"
+
+#: templates/customers/book_worker.html:27
+msgid "Confirm Booking Request"
+msgstr "બુકિંગ વિનંતીની પુષ્ટિ કરો"
+
+#: templates/customers/book_worker.html:39
+msgid "Location attached ✓"
+msgstr "સ્થાન જોડાયું ✓"
+
+#: templates/customers/booking_detail.html:15
+msgid "Job Tracking"
+msgstr "કામ ટ્રેકિંગ"
+
+#: templates/customers/booking_detail.html:20
+msgid "Requested"
+msgstr "વિનંતી કરાયેલ"
+
+#: templates/customers/booking_detail.html:21
+msgid "Accepted"
+msgstr "સ્વીકૃત"
+
+#: templates/customers/booking_detail.html:22
+msgid "In Progress"
+msgstr "પ્રગતિમાં"
+
+#: templates/customers/booking_detail.html:23
+msgid "Completed"
+msgstr "પૂર્ણ"
+
+#: templates/customers/booking_detail.html:28
+msgid "Details"
+msgstr "વિગતો"
+
+#: templates/customers/booking_detail.html:32
+msgid "Address"
+msgstr "સરનામું"
+
+#: templates/customers/booking_detail.html:33
+msgid "Estimated Hours"
+msgstr "અંદાજિત કલાકો"
+
+#: templates/customers/booking_detail.html:35
+msgid "Distance"
+msgstr "અંતર"
+
+#: templates/customers/booking_detail.html:37
+msgid "Notes"
+msgstr "નોંધ"
+
+#: templates/customers/booking_detail.html:43
+msgid "Cancel Booking"
+msgstr "બુકિંગ રદ કરો"
+
+#: templates/customers/booking_detail.html:48
+msgid "Pay Now"
+msgstr "હમણાં ચૂકવો"
+
+#: templates/customers/booking_detail.html:50
+msgid "View Invoice"
+msgstr "ઇનવોઇસ જુઓ"
+
+#: templates/customers/booking_detail.html:53
+#: templates/customers/rate_booking.html:3
+msgid "Rate Worker"
+msgstr "કામદારને રેટ કરો"
+
+#: templates/customers/dashboard.html:3
+msgid "Customer Dashboard"
+msgstr ""
+
+#: templates/customers/dashboard.html:6 templates/workers/dashboard.html:8
+#, python-format
+msgid "Welcome, %(name)s"
+msgstr ""
+
+#: templates/customers/dashboard.html:7
+msgid "Book trusted, verified cooperative workers in a few taps."
+msgstr ""
+
+#: templates/customers/dashboard.html:14 templates/workers/dashboard.html:37
+msgid "Completed Jobs"
+msgstr "પૂર્ણ થયેલ કામ"
+
+#: templates/customers/dashboard.html:18 templates/customers/emergency.html:3
+msgid "Emergency Service"
+msgstr "કટોકટી સેવા"
+
+#: templates/customers/dashboard.html:19
+msgid "Get urgent help now"
+msgstr "હમણાં તાત્કાલિક મદદ મેળવો"
+
+#: templates/customers/dashboard.html:24
+msgid "Choose a Service"
+msgstr "એક સેવા પસંદ કરો"
+
+#: templates/customers/dashboard.html:38 templates/workers/dashboard.html:42
+msgid "Recent Bookings"
+msgstr "તાજેતરની બુકિંગ"
+
+#: templates/customers/dashboard.html:39 templates/workers/dashboard.html:43
+msgid "View all"
+msgstr "બધું જુઓ"
+
+#: templates/customers/dashboard.html:52
+#: templates/customers/my_bookings.html:25
+msgid "View"
+msgstr "જુઓ"
+
+#: templates/customers/dashboard.html:59
+msgid "No bookings yet. Book your first service above!"
+msgstr "હજુ સુધી કોઈ બુકિંગ નથી. ઉપર તમારી પ્રથમ સેવા બુક કરો!"
+
+#: templates/customers/emergency.html:7
+msgid "Emergency Service Request"
+msgstr "કટોકટી સેવા વિનંતી"
+
+#: templates/customers/emergency.html:8
+msgid ""
+"Select the service you need urgently — we'll show only currently online, "
+"verified workers near you."
+msgstr ""
+
+#: templates/customers/find_workers.html:3
+msgid "Find Workers"
+msgstr "કામદારો શોધો"
+
+#: templates/customers/find_workers.html:7
+msgid "near you"
+msgstr "તમારી નજીક"
+
+#: templates/customers/find_workers.html:8
+msgid "Use my location"
+msgstr "મારું સ્થાન વાપરો"
+
+#: templates/customers/find_workers.html:13
+msgid "Showing only ONLINE workers for emergency dispatch."
+msgstr "કટોકટી ડિસ્પેચ માટે ફક્ત ઓનલાઇન કામદારો બતાવવામાં આવી રહ્યા છે."
+
+#: templates/customers/find_workers.html:34
+msgid "away"
+msgstr "દૂર"
+
+#: templates/customers/find_workers.html:36
+#: templates/customers/worker_profile.html:18
+msgid "yrs experience"
+msgstr "વર્ષ અનુભવ"
+
+#: templates/customers/find_workers.html:40
+msgid "View Profile"
+msgstr "પ્રોફાઇલ જુઓ"
+
+#: templates/customers/find_workers.html:41
+#: templates/customers/worker_profile.html:27
+msgid "Book Now"
+msgstr "હમણાં બુક કરો"
+
+#: templates/customers/find_workers.html:46
+msgid ""
+"No verified workers available for this service right now. Try again later."
+msgstr ""
+
+#: templates/customers/find_workers.html:68
+msgid "You"
+msgstr "તમે"
+
+#: templates/customers/find_workers.html:69
+msgid "Your location"
+msgstr "તમારું સ્થાન"
+
+#: templates/customers/invoice.html:3 templates/customers/invoice.html:13
+msgid "Invoice"
+msgstr ""
+
+#: templates/customers/invoice.html:10
+msgid "Tax Invoice / Receipt"
+msgstr ""
+
+#: templates/customers/invoice.html:22
+msgid "Booking Ref"
+msgstr ""
+
+#: templates/customers/invoice.html:25
+msgid "Description"
+msgstr ""
+
+#: templates/customers/invoice.html:28
+msgid "Cooperative commission"
+msgstr ""
+
+#: templates/customers/invoice.html:29
+msgid "Worker payout"
+msgstr ""
+
+#: templates/customers/invoice.html:32
+msgid "Total Paid"
+msgstr ""
+
+#: templates/customers/invoice.html:35
+msgid "Payment method"
+msgstr ""
+
+#: templates/customers/invoice.html:38
+msgid "Print Invoice"
+msgstr "ઇનવોઇસ પ્રિન્ટ કરો"
+
+#: templates/customers/invoice.html:39
+msgid "Back to Booking"
+msgstr "બુકિંગ પર પાછા જાઓ"
+
+#: templates/customers/my_bookings.html:32
+#: templates/workers/bookings_list.html:41
+msgid "No bookings found."
+msgstr "કોઈ બુકિંગ મળી નથી."
+
+#: templates/customers/payment.html:3
+msgid "Payment"
+msgstr ""
+
+#: templates/customers/payment.html:7
+msgid "Mock Payment"
+msgstr "મોક ચુકવણી"
+
+#: templates/customers/payment.html:11
+msgid "Choose payment method"
+msgstr "ચુકવણી પદ્ધતિ પસંદ કરો"
+
+#: templates/customers/payment.html:17
+msgid "Pay"
+msgstr "ચૂકવો"
+
+#: templates/customers/payment.html:19
+msgid ""
+"This is a mock payment gateway for demo purposes — no real transaction "
+"occurs."
+msgstr ""
+
+#: templates/customers/rate_booking.html:7
+msgid "Rate"
+msgstr ""
+
+#: templates/customers/rate_booking.html:10
+msgid "Score"
+msgstr "સ્કોર"
+
+#: templates/customers/rate_booking.html:20
+msgid "Submit Rating"
+msgstr "રેટિંગ સબમિટ કરો"
+
+#: templates/customers/select_service.html:3
+msgid "Select a Service"
+msgstr ""
+
+#: templates/customers/select_service.html:6
+msgid "What service do you need?"
+msgstr "તમને કઈ સેવા જોઈએ છે?"
+
+#: templates/customers/worker_profile.html:17
+msgid "reviews"
+msgstr ""
+
+#: templates/customers/worker_profile.html:18
+msgid "jobs completed"
+msgstr ""
+
+#: templates/customers/worker_profile.html:22
+msgid "Online now"
+msgstr ""
+
+#: templates/customers/worker_profile.html:32
+msgid "Customer Reviews"
+msgstr ""
+
+#: templates/customers/worker_profile.html:44
+msgid "No reviews yet."
+msgstr ""
+
+#: templates/workers/bookings_list.html:27 templates/workers/dashboard.html:58
+msgid "Accept"
+msgstr "સ્વીકારો"
+
+#: templates/workers/bookings_list.html:28 templates/workers/dashboard.html:59
+msgid "Reject"
+msgstr "નકારો"
+
+#: templates/workers/bookings_list.html:30
+msgid "Start"
+msgstr "શરૂ કરો"
+
+#: templates/workers/bookings_list.html:32
+msgid "Complete"
+msgstr "પૂર્ણ કરો"
+
+#: templates/workers/certificate_upload.html:3
+#: templates/workers/dashboard.html:30
+msgid "Upload Certificate"
+msgstr "પ્રમાણપત્ર અપલોડ કરો"
+
+#: templates/workers/certificate_upload.html:7
+msgid "Upload Certification"
+msgstr "પ્રમાણપત્ર અપલોડ કરો"
+
+#: templates/workers/certificate_upload.html:9
+msgid "Current file"
+msgstr "વર્તમાન ફાઇલ"
+
+#: templates/workers/certificate_upload.html:20
+msgid "Submit for Verification"
+msgstr "ચકાસણી માટે સબમિટ કરો"
+
+#: templates/workers/dashboard.html:3
+msgid "Worker Dashboard"
+msgstr ""
+
+#: templates/workers/dashboard.html:10
+msgid "Pending Verification"
+msgstr "ચકાસણી બાકી"
+
+#: templates/workers/dashboard.html:21
+msgid "Go Offline"
+msgstr "ઓફલાઇન જાઓ"
+
+#: templates/workers/dashboard.html:21
+msgid "Go Online"
+msgstr "ઓનલાઇન જાઓ"
+
+#: templates/workers/dashboard.html:28
+msgid ""
+"Complete your skill profile and upload a certificate to get verified by the "
+"cooperative admin."
+msgstr ""
+
+#: templates/workers/dashboard.html:29
+msgid "Edit Profile"
+msgstr "પ્રોફાઇલ સંપાદિત કરો"
+
+#: templates/workers/dashboard.html:35
+msgid "Pending Requests"
+msgstr "બાકી વિનંતીઓ"
+
+#: templates/workers/dashboard.html:36
+msgid "Active Jobs"
+msgstr "સક્રિય કામ"
+
+#: templates/workers/dashboard.html:38 templates/workers/earnings.html:7
+msgid "Total Earnings"
+msgstr "કુલ કમાણી"
+
+#: templates/workers/dashboard.html:61
+msgid "Start Job"
+msgstr "કામ શરૂ કરો"
+
+#: templates/workers/dashboard.html:63
+msgid "Mark Complete"
+msgstr "પૂર્ણ ચિહ્નિત કરો"
+
+#: templates/workers/dashboard.html:72
+msgid "No bookings yet."
+msgstr "હજુ સુધી કોઈ બુકિંગ નથી."
+
+#: templates/workers/earnings.html:13
+msgid "Payment History"
+msgstr "ચુકવણી ઇતિહાસ"
+
+#: templates/workers/earnings.html:17
+msgid "Your Payout"
+msgstr ""
+
+#: templates/workers/earnings.html:32
+msgid "No earnings yet."
+msgstr "હજુ સુધી કોઈ કમાણી નથી."
+
+#: templates/workers/earnings.html:42
+msgid "Earnings (₹)"
+msgstr ""
+
+#: templates/workers/profile_edit.html:3
+msgid "Edit Skill Profile"
+msgstr ""
+
+#: templates/workers/profile_edit.html:7
+msgid "My Skill Profile"
+msgstr "મારી કૌશલ્ય પ્રોફાઇલ"
+
+#: templates/workers/profile_edit.html:25
+msgid "Set my service location"
+msgstr "મારું સેવા સ્થાન સેટ કરો"
+
+#: templates/workers/profile_edit.html:26
+#: templates/workers/profile_edit.html:40
+msgid "Location set"
+msgstr "સ્થાન સેટ થયું"
+
+#: templates/workers/profile_edit.html:28
+msgid "Save Profile"
+msgstr "પ્રોફાઇલ સાચવો"
+
+#: workers/views.py:49
+msgid "Skill profile updated. Awaiting/maintaining cooperative verification."
+msgstr "કૌશલ્ય પ્રોફાઇલ અપડેટ થઈ. ચકાસણી બાકી છે."
+
+#: workers/views.py:67
+msgid "Certificate uploaded. Sent for cooperative verification."
+msgstr "પ્રમાણપત્ર અપલોડ થયું. ચકાસણી માટે મોકલાયું."
+
+#: workers/views.py:79
+msgid "You must be verified by the cooperative before going online."
+msgstr "ઓનલાઇન થતાં પહેલાં સહકારી મંડળ દ્વારા ચકાસાયેલ હોવું જરૂરી છે."
+
+#: workers/views.py:106
+msgid "Booking accepted."
+msgstr "બુકિંગ સ્વીકારાઈ."
+
+#: workers/views.py:110
+msgid "Booking rejected."
+msgstr "બુકિંગ નકારાઈ."
+
+#: workers/views.py:115
+msgid "Job marked in progress."
+msgstr "કામ પ્રગતિમાં ચિહ્નિત થયું."
+
+#: workers/views.py:123
+msgid "Job marked complete. Customer can now pay & rate."
+msgstr "કામ પૂર્ણ ચિહ્નિત થયું. ગ્રાહક હવે ચુકવણી અને રેટિંગ કરી શકે છે."
