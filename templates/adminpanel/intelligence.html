@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Cooperative Intelligence" %}{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h2 class="mb-4">{% trans "Cooperative Intelligence" %}</h2>
+  <div class="row g-3 mb-4">
+    <div class="col-md-6">
+      <div class="card-coop p-3">
+        <h6>{% trans "Service Demand" %}</h6>
+        <canvas id="demandChart" height="180"></canvas>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card-coop p-3">
+        <h6>{% trans "Worker Utilization" %}</h6>
+        <canvas id="utilChart" height="180"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-md-6">
+      <div class="card-coop p-3">
+        <h6>{% trans "Area Demand" %}</h6>
+        <ul class="mb-0">
+          {% for item in area_summary %}
+          <li class="py-2 border-bottom"><strong>{{ item.area }}</strong>: {{ item.service }} <span class="badge bg-warning text-dark">{{ item.level }}</span></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card-coop p-3">
+        <h6>{% trans "AI Forecasting – Prototype" %}</h6>
+        <ul class="mb-0">
+          {% for service, level in forecast.items %}
+          <li class="py-2 border-bottom"><strong>{{ service }}</strong> → {{ level }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+new Chart(document.getElementById('demandChart'), {
+  type: 'bar',
+  data: { labels: {{ demand_labels|safe }}, datasets: [{ data: {{ demand_values|safe }}, backgroundColor: ['#0f6e5c','#17a087','#f4a13a','#d64545','#7aa7a9','#9b5de5'] }] },
+  options: { plugins: { legend: { display: false } } }
+});
+new Chart(document.getElementById('utilChart'), {
+  type: 'radar',
+  data: { labels: ['Plumbing','Electrical','Cleaning','Pump repair','Solar maintenance'], datasets: [{ data: [85, 76, 60, 58, 62], borderColor: '#0f6e5c', backgroundColor: 'rgba(15,110,92,.15)' }] }
+});
+</script>
+{% endblock %}

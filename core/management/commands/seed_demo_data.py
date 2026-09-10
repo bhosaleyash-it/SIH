@@ -52,6 +52,7 @@ class Command(BaseCommand):
 
         self.stdout.write("Creating service categories...")
         categories_data = [
+            ("AC Technician", "bi-snow", "Cooling system repair, installation and servicing", 350),
             ("Electrician", "bi-lightning-charge", "Wiring, repairs, installations", 250),
             ("Plumber", "bi-droplet", "Pipe fitting, leak repair, fixtures", 220),
             ("Carpenter", "bi-hammer", "Furniture, doors, woodwork", 240),
@@ -59,7 +60,15 @@ class Command(BaseCommand):
             ("Painter", "bi-brush", "Interior & exterior painting", 200),
             ("Gardener", "bi-flower1", "Lawn care, landscaping, pruning", 160),
             ("Driver", "bi-truck", "Local driving & delivery services", 190),
+            ("Caregiver", "bi-heart-pulse", "Home care and elder support", 210),
             ("Technician", "bi-cpu", "Appliance & electronics repair", 260),
+            ("Solar Technician", "bi-sun", "Solar pump and panel maintenance", 300),
+            ("Pump Technician", "bi-water", "Water and borewell pump service", 280),
+            ("Agricultural Technician", "bi-tractor", "Farm equipment repair", 320),
+            ("Irrigation pump repair", "bi-water", "Rural irrigation support", 280),
+            ("Solar pump maintenance", "bi-sun", "Solar pump preventive upkeep", 300),
+            ("School maintenance", "bi-building", "Institution upkeep support", 260),
+            ("Community water pump", "bi-droplet-half", "Community water infrastructure", 240),
         ]
         categories = {}
         for name, icon, desc, rate in categories_data:

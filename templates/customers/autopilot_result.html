@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Best Match Found" %}{% endblock %}
+{% block content %}
+<div class="container py-4" style="max-width: 760px;">
+  <div class="card-coop p-4 p-md-5">
+    <div class="text-center mb-4">
+      <div class="text-success fw-bold mb-2">{% trans "BEST MATCH FOUND" %}</div>
+      <h2 class="mb-1">{% trans "Service" %}: {{ recommendation.service_name }}</h2>
+      <p class="text-muted mb-0">{% trans "Understanding your problem" %}: {{ problem }}</p>
+    </div>
+
+    {% if recommendation.has_multiple_services %}
+      <div class="alert alert-info">
+        <strong>{% trans "Coordinated multi-service request" %}</strong>
+        <div class="small">{% trans "One coordinator will manage the complete job while skilled workers handle each requirement." %}</div>
+      </div>
+      <div class="mb-4">
+        <div class="fw-semibold mb-2">{% trans "Planned skilled-worker assignments" %}</div>
+        {% for result in recommendation.workers_by_service %}
+          <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+            <span>{{ result.service_name }}</span>
+            {% if result.worker %}
+              <span class="small text-success"><i class="bi bi-person-check"></i> {{ result.worker.profile.user.get_full_name|default:result.worker.profile.user.username }}</span>
+            {% else %}
+              <span class="small text-warning">{% trans "Awaiting assignment" %}</span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if recommendation.worker %}
+      {% with worker=recommendation.worker.profile %}
+      <div class="worker-card mb-4">
+        <div class="d-flex gap-3 align-items-center flex-wrap">
+          <div class="worker-avatar">{{ worker.user.first_name|first|upper }}{{ worker.user.last_name|first|upper }}</div>
+          <div>
+            <h4 class="mb-1">{{ worker.user.get_full_name|default:worker.user.username }}</h4>
+            <div class="small">
+              <span class="badge badge-verified">{% trans "Verified Worker" %}</span>
+              <span class="rating-stars ms-2"><i class="bi bi-star-fill"></i> {{ worker.rating_avg|default:"0.0" }} {% trans "rating" %}</span>
+            </div>
+          </div>
+        </div>
+        <div class="row g-2 mt-3 small text-muted">
+          <div class="col-6 col-md-3"><i class="bi bi-person-check"></i> {{ worker.experience_years }} {% trans "years experience" %}</div>
+          <div class="col-6 col-md-3"><i class="bi bi-geo-alt"></i> {{ recommendation.worker.distance_km }} km {% trans "away" %}</div>
+          <div class="col-6 col-md-3"><i class="bi bi-clock-history"></i> {% trans "ETA" %}: {{ recommendation.worker.response_minutes }} {% trans "minutes" %}</div>
+          <div class="col-6 col-md-3"><i class="bi bi-currency-rupee"></i> {% trans "Estimated Price" %}: ₹{{ worker.hourly_rate }}</div>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <div class="fw-semibold mb-2">{% trans "Match Score" %}: {{ recommendation.worker.score }}/100</div>
+        <div class="progress progress-thin">
+          <div class="progress-bar bg-success" style="width: {{ recommendation.worker.score }}%"></div>
+        </div>
+      </div>
+
+      <div class="d-flex gap-2 flex-wrap">
+        <a href="{% url 'customers:confirm_autopilot_booking' %}" class="btn btn-coop-primary btn-lg">{% trans "YES, BOOK THIS WORKER" %}</a>
+        <a href="{% url 'customers:dashboard' %}" class="btn btn-outline-coop btn-lg">{% trans "Back to Dashboard" %}</a>
+      </div>
+      {% endwith %}
+    {% else %}
+      <div class="alert alert-warning">
+        {% trans "No verified worker is available for this issue right now. Please try again shortly or use emergency." %}
+      </div>
+      <a href="{% url 'customers:dashboard' %}" class="btn btn-coop-primary">{% trans "Try another request" %}</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

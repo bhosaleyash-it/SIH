@@ -87,6 +87,55 @@ class Booking(models.Model):
         return hasattr(self, "payment") and self.payment.status == "success"
 
 
+class ServiceRequest(models.Model):
+    """One organization job coordinated across multiple skilled workers."""
+
+    class Status(models.TextChoices):
+        OPEN = "open", "Open"
+        IN_PROGRESS = "in_progress", "In Progress"
+        COMPLETED = "completed", "Completed"
+        CANCELLED = "cancelled", "Cancelled"
+
+    organization_name = models.CharField(max_length=200, blank=True)
+    customer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+                                 related_name="service_requests")
+    coordinator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL,
+                                    null=True, blank=True, related_name="coordinated_requests")
+    problem = models.TextField()
+    address = models.CharField(max_length=255)
+    status = models.CharField(max_length=20, choices=Status.choices, default=Status.OPEN)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+
+    @property
+    def assignment_count(self):
+        return self.assignments.count()
+
+    @property
+    def completed_assignment_count(self):
+        return self.assignments.filter(status=Booking.Status.COMPLETED).count()
+
+
+class ServiceAssignment(models.Model):
+    """Coordinator-owned dispatch item for one required skill."""
+
+    request = models.ForeignKey(ServiceRequest, on_delete=models.CASCADE, related_name="assignments")
+    service_category = models.ForeignKey("services.ServiceCategory", on_delete=models.PROTECT)
+    worker = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL,
+                               null=True, blank=True, related_name="service_assignments")
+    booking = models.OneToOneField(Booking, on_delete=models.SET_NULL, null=True, blank=True,
+                                   related_name="service_assignment")
+    status = models.CharField(max_length=20, choices=Booking.Status.choices, default=Booking.Status.PENDING)
+    assigned_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["assigned_at"]
+        unique_together = [("request", "service_category")]
+
+
 class Rating(models.Model):
     booking = models.OneToOneField(Booking, on_delete=models.CASCADE, related_name="rating")
     customer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="ratings_given")

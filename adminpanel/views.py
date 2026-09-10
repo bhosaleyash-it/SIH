@@ -10,7 +10,7 @@ from datetime import timedelta
 
 from accounts.models import User
 from services.models import ServiceCategory, WorkerProfile
-from bookings.models import Booking, Rating
+from bookings.models import Booking, Rating, ServiceRequest
 from payments.models import Payment
 from .forms import ServiceCategoryForm, VerifyWorkerForm
 
@@ -61,6 +61,17 @@ def dashboard(request):
     status_labels = [dict(Booking.Status.choices).get(s["status"], s["status"]) for s in status_data]
     status_counts = [s["count"] for s in status_data]
 
+    demand = Booking.objects.values("service_category__name").annotate(count=Count("id")).order_by("-count")[:5]
+    demand_labels = [d["service_category__name"] for d in demand]
+    demand_counts = [d["count"] for d in demand]
+
+    worker_util = []
+    for profile in WorkerProfile.objects.filter(is_verified=True).select_related("user")[:8]:
+        worker_util.append({
+            "name": profile.user.get_full_name() or profile.user.username,
+            "value": Booking.objects.filter(worker=profile.user).count(),
+        })
+
     context = {
         "total_customers": total_customers,
         "total_workers": total_workers,
@@ -77,6 +88,10 @@ def dashboard(request):
         "month_revenue": month_revenue,
         "status_labels": status_labels,
         "status_counts": status_counts,
+        "demand_labels": demand_labels,
+        "demand_counts": demand_counts,
+        "worker_util": worker_util,
+        "emergency_requests": Booking.objects.filter(is_emergency=True).count(),
     }
     return render(request, "adminpanel/dashboard.html", context)
 
@@ -161,6 +176,30 @@ def edit_service(request, pk):
 
 @login_required
 @user_passes_test(admin_required)
+def intelligence(request):
+    demand = Booking.objects.values("service_category__name").annotate(count=Count("id")).order_by("-count")[:6]
+    labels = [d["service_category__name"] for d in demand]
+    values = [d["count"] for d in demand]
+    area_summary = [
+        {"area": "Area A", "service": "Plumbing", "level": "HIGH"},
+        {"area": "Area B", "service": "Electrical", "level": "HIGH"},
+        {"area": "Area C", "service": "Cleaning", "level": "MEDIUM"},
+    ]
+    forecast = {
+        "Plumbing": "HIGH",
+        "Electrical": "MEDIUM",
+        "Cleaning": "LOW",
+    }
+    return render(request, "adminpanel/intelligence.html", {
+        "demand_labels": labels,
+        "demand_values": values,
+        "area_summary": area_summary,
+        "forecast": forecast,
+    })
+
+
+@login_required
+@user_passes_test(admin_required)
 def manage_bookings(request):
     status = request.GET.get("status", "")
     qs = Booking.objects.select_related("customer", "worker", "service_category").order_by("-created_at")
@@ -168,6 +207,15 @@ def manage_bookings(request):
         qs = qs.filter(status=status)
     return render(request, "adminpanel/manage_bookings.html", {"bookings": qs, "status": status,
                                                                  "statuses": Booking.Status.choices})
+
+
+@login_required
+@user_passes_test(admin_required)
+def manage_service_requests(request):
+    requests = ServiceRequest.objects.select_related("customer", "coordinator").prefetch_related(
+        "assignments__service_category", "assignments__worker"
+    )
+    return render(request, "adminpanel/manage_service_requests.html", {"service_requests": requests})
 
 
 @login_required

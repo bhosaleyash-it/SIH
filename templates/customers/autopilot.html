@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Service Autopilot" %}{% endblock %}
+{% block content %}
+<div class="container py-4" style="max-width: 760px;">
+  <div class="card-coop p-4 p-md-5">
+    <div class="text-center mb-4">
+      <div class="badge bg-success-subtle text-success mb-2 px-3 py-2 rounded-pill">Sahakaar Seva</div>
+      <h2 class="mb-2">{% trans "What problem do you have?" %}</h2>
+      <p class="text-muted mb-0">{% trans "Describe the issue and our cooperative service autopilot will identify the right skill, find a verified worker, and recommend the best match." %}</p>
+    </div>
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="problem" class="form-label fw-semibold">{% trans "Tell us what went wrong" %}</label>
+        <textarea id="problem" name="problem" rows="5" class="form-control" placeholder="My AC is not cooling."></textarea>
+      </div>
+      <div class="d-flex gap-2 flex-wrap justify-content-center">
+        <button type="submit" class="btn btn-coop-primary btn-lg px-4">{% trans "Find Help" %}</button>
+        <a href="{% url 'customers:emergency' %}" class="btn btn-outline-danger btn-lg px-4">{% trans "Emergency" %}</a>
+      </div>
+    </form>
+    <div class="mt-4 small text-muted">
+      {% trans "Example: My AC is not cooling, water pipe leaking, fan not working, door broken, house cleaning." %}
+    </div>
+  </div>
+</div>
+{% endblock %}

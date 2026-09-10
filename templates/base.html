@@ -33,6 +33,7 @@
           <li class="nav-item"><a class="nav-link" href="{% url 'workers:dashboard' %}">{% trans "Dashboard" %}</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'workers:bookings_list' %}">{% trans "Bookings" %}</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'workers:earnings' %}">{% trans "Earnings" %}</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'workers:welfare' %}">{% trans "Welfare" %}</a></li>
         {% elif user.is_authenticated and user.is_coop_admin %}
           <li class="nav-item"><a class="nav-link" href="{% url 'adminpanel:dashboard' %}">{% trans "Dashboard" %}</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'adminpanel:verify_workers' %}">{% trans "Verify Workers" %}</a></li>
@@ -40,6 +41,7 @@
           <li class="nav-item"><a class="nav-link" href="{% url 'adminpanel:manage_services' %}">{% trans "Services" %}</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'adminpanel:manage_bookings' %}">{% trans "Bookings" %}</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'adminpanel:monitor_payments' %}">{% trans "Payments" %}</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'adminpanel:intelligence' %}">{% trans "Intelligence" %}</a></li>
         {% else %}
           <li class="nav-item"><a class="nav-link" href="{% url 'core:home' %}">{% trans "Home" %}</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'core:about' %}">{% trans "About" %}</a></li>

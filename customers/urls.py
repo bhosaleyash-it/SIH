@@ -5,6 +5,8 @@ app_name = "customers"
 
 urlpatterns = [
     path("dashboard/", views.dashboard, name="dashboard"),
+    path("autopilot/", views.service_autopilot, name="service_autopilot"),
+    path("autopilot/confirm/", views.confirm_autopilot_booking, name="confirm_autopilot_booking"),
     path("services/", views.select_service, name="select_service"),
     path("services/<int:category_id>/workers/", views.find_workers, name="find_workers"),
     path("worker/<int:pk>/", views.worker_profile, name="worker_profile"),

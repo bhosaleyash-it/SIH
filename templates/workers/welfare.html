@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Worker Welfare" %}{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <h2 class="mb-3">{% trans "Worker Welfare" %}</h2>
+  <div class="row g-3">
+    <div class="col-md-6">
+      <div class="card-coop p-4">
+        <div class="fw-semibold mb-2">{% trans "Welfare status" %}</div>
+        <div class="fs-5 text-success">{{ welfare_status }}</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card-coop p-4">
+        <div class="fw-semibold mb-2">{% trans "Training status" %}</div>
+        <div class="fs-5">{{ training_status }}</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card-coop p-4">
+        <div class="fw-semibold mb-2">{% trans "Certificate status" %}</div>
+        <div class="fs-5">{{ certificate_status }}</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card-coop p-4">
+        <div class="fw-semibold mb-2">{% trans "Earnings history" %}</div>
+        <div class="fs-5">₹{{ earnings_total }}</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card-coop p-4">
+        <div class="fw-semibold mb-2">{% trans "Insurance status" %}</div>
+        <div class="fs-5 text-muted">{{ insurance_status }}</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card-coop p-4">
+        <div class="fw-semibold mb-2">{% trans "Grievance status" %}</div>
+        <div class="fs-5">{{ grievance_status }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

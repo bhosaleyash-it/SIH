@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from django.db.models import Sum
@@ -6,6 +8,7 @@ from django.utils import timezone
 from django.utils.translation import gettext as _
 from django.http import JsonResponse
 
+from core.autopilot import recommend_worker_for_problem
 from services.models import WorkerProfile
 from bookings.models import Booking
 from payments.models import Payment
@@ -96,6 +99,22 @@ def bookings_list(request):
 
 @login_required
 @user_passes_test(worker_required)
+def welfare(request):
+    profile, _ = WorkerProfile.objects.get_or_create(user=request.user)
+    context = {
+        "profile": profile,
+        "welfare_status": "Healthy",
+        "training_status": "Completed onboarding",
+        "certificate_status": "Verified" if profile.is_verified else "Pending verification",
+        "insurance_status": "Coming Soon",
+        "grievance_status": "Open",
+        "earnings_total": Payment.objects.filter(booking__worker=request.user, status="success").aggregate(total=Sum("worker_payout"))["total"] or 0,
+    }
+    return render(request, "workers/welfare.html", context)
+
+
+@login_required
+@user_passes_test(worker_required)
 def booking_action(request, pk, action):
     booking = get_object_or_404(Booking, pk=pk, worker=request.user)
     now = timezone.now()
@@ -107,6 +126,26 @@ def booking_action(request, pk, action):
     elif action == "reject" and booking.status == Booking.Status.PENDING:
         booking.status = Booking.Status.REJECTED
         booking.save()
+        recommendation = recommend_worker_for_problem(booking.service_category.name, booking.latitude or 23.0225, booking.longitude or 72.5714)
+        fallback_worker = recommendation["worker"]["profile"] if recommendation.get("worker") else None
+        if fallback_worker and fallback_worker.user != booking.worker:
+            new_booking = Booking.objects.create(
+                customer=booking.customer,
+                worker=fallback_worker.user,
+                service_category=booking.service_category,
+                address=booking.address,
+                latitude=booking.latitude,
+                longitude=booking.longitude,
+                scheduled_time=timezone.now() + timedelta(minutes=25),
+                notes=f"Backup worker assigned after {booking.worker.get_full_name() or booking.worker.username} rejected the request.",
+                is_emergency=booking.is_emergency,
+                status=Booking.Status.PENDING,
+                estimated_hours=booking.estimated_hours,
+                price=booking.price,
+            )
+            Payment.objects.create(booking=new_booking, amount=new_booking.price, method=Payment.Method.MOCK_UPI)
+            messages.warning(request, _("Your assigned worker is unavailable. Finding another verified worker nearby... Backup worker found and assigned."))
+            return redirect("workers:bookings_list")
         messages.info(request, _("Booking rejected."))
     elif action == "start" and booking.status == Booking.Status.ACCEPTED:
         booking.status = Booking.Status.IN_PROGRESS

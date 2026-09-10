@@ -19,8 +19,15 @@
   <div class="row g-3 mb-4">
     <div class="col-6 col-md-3"><div class="stat-card"><div class="stat-number">{{ total_bookings }}</div><div class="text-muted small">{% trans "Total Bookings" %}</div></div></div>
     <div class="col-6 col-md-3"><div class="stat-card"><div class="stat-number">{{ active_bookings }}</div><div class="text-muted small">{% trans "Active Bookings" %}</div></div></div>
+    <div class="col-6 col-md-3"><div class="stat-card"><div class="stat-number">{{ completed_bookings }}</div><div class="text-muted small">{% trans "Completed Jobs" %}</div></div></div>
+    <div class="col-6 col-md-3"><div class="stat-card"><div class="stat-number">{{ emergency_requests }}</div><div class="text-muted small">{% trans "Emergency Requests" %}</div></div></div>
+  </div>
+
+  <div class="row g-3 mb-4">
     <div class="col-6 col-md-3"><div class="stat-card"><div class="stat-number">₹{{ total_revenue }}</div><div class="text-muted small">{% trans "Total Revenue" %}</div></div></div>
-    <div class="col-6 col-md-3"><div class="stat-card"><div class="stat-number">₹{{ total_commission }}</div><div class="text-muted small">{% trans "Cooperative Commission" %}</div></div></div>
+    <div class="col-6 col-md-3"><div class="stat-card"><div class="stat-number">₹{{ total_commission }}</div><div class="text-muted small">{% trans "Cooperative Fee" %}</div></div></div>
+    <div class="col-6 col-md-3"><div class="stat-card"><div class="stat-number">{{ demand_labels|length }}</div><div class="text-muted small">{% trans "Service Demand" %}</div></div></div>
+    <div class="col-6 col-md-3"><div class="stat-card"><div class="stat-number">{{ worker_util|length }}</div><div class="text-muted small">{% trans "Worker Utilization" %}</div></div></div>
   </div>
 
   <div class="row g-3">
@@ -40,6 +47,18 @@
       <div class="card-coop p-3">
         <h6>{% trans "Revenue Trend" %}</h6>
         <canvas id="revenueChart" height="90"></canvas>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="card-coop p-3">
+        <h6>{% trans "Fair Allocation" %}</h6>
+        <ul class="mb-0">
+          {% for item in worker_util %}
+          <li class="d-flex justify-content-between py-2 border-bottom"><span>{{ item.name }}</span><span>{{ item.value }} jobs</span></li>
+          {% empty %}
+          <li class="text-muted">No worker utilization data yet.</li>
+          {% endfor %}
+        </ul>
       </div>
     </div>
   </div>

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Coordinated Service Requests" %}{% endblock %}
+{% block content %}
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <h2 class="mb-1">{% trans "Coordinated Service Requests" %}</h2>
+      <p class="text-muted mb-0">{% trans "One coordinator managing every skilled-worker assignment." %}</p>
+    </div>
+  </div>
+  {% for service_request in service_requests %}
+    <div class="card-coop p-3 mb-3">
+      <div class="d-flex justify-content-between gap-3 flex-wrap">
+        <div>
+          <h5 class="mb-1">{{ service_request.organization_name }}</h5>
+          <div class="small text-muted">{{ service_request.created_at|date:"d M Y, H:i" }} · {{ service_request.address }}</div>
+        </div>
+        <span class="badge bg-primary align-self-start">{{ service_request.get_status_display }}</span>
+      </div>
+      <p class="my-3">{{ service_request.problem }}</p>
+      <div class="small fw-semibold mb-2">{% trans "Worker assignments" %}</div>
+      {% for assignment in service_request.assignments.all %}
+        <div class="d-flex justify-content-between border-top py-2 small">
+          <span>{{ assignment.service_category.name }}</span>
+          <span>{% if assignment.worker %}{{ assignment.worker.get_full_name|default:assignment.worker.username }}{% else %}{% trans "Awaiting assignment" %}{% endif %} · {{ assignment.get_status_display }}</span>
+        </div>
+      {% empty %}
+        <div class="text-muted small">{% trans "No assignments yet" %}</div>
+      {% endfor %}
+    </div>
+  {% empty %}
+    <div class="card-coop p-4 text-muted">{% trans "No coordinated service requests yet." %}</div>
+  {% endfor %}
+</div>
+{% endblock %}
